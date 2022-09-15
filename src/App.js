@@ -4,10 +4,12 @@ import React from 'react';
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import SignUp from './pages/signup/SignUp'
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="App">
+      <Navbar></Navbar>
       <Routes>
         <Route exact path='/' element={<Home></Home>}></Route>
         <Route path='/login' element={<Login></Login>}></Route>
