@@ -1,5 +1,5 @@
 import {Routes,Route} from 'react-router-dom'
-
+import React from 'react';
 //pages
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
@@ -9,10 +9,9 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route patch='/' element={<Home></Home>}></Route>
-        <Route patch='/login' element={<Login></Login>}></Route>
-        <Route patch='/signup' element={<SignUp></SignUp>}></Route>
-
+        <Route exact path='/' element={<Home></Home>}></Route>
+        <Route path='/login' element={<Login></Login>}></Route>
+        <Route path='/signup' element={<SignUp></SignUp>}></Route>
       </Routes>
     </div>
   );
