@@ -1,3 +1,6 @@
+import firebase from "firebase/app";
+import 'firebase/firestore'
+
 const firebaseConfig = {
   apiKey: "AIzaSyB4NlJKU5qkVp-cW8niqJ4UE2_DCQdD2Do",
   authDomain: "finance-tracker-eebce.firebaseapp.com",
@@ -6,3 +9,11 @@ const firebaseConfig = {
   messagingSenderId: "444612622595",
   appId: "1:444612622595:web:7f62b537f24b9025cc5136"
 };
+
+//init firebase
+firebase.initializeApp(firebaseConfig)
+
+//init service
+const projectFirestore = firebase.firestore()
+
+export {projectFirestore}
