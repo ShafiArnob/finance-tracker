@@ -18,8 +18,11 @@ export const useLogin = () => {
 
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })
+      
+      console.log(isCancelled);
 
       if (!isCancelled) {
+        console.log(111);
         setIsPending(false)
         setError(null)
       }
