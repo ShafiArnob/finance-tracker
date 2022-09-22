@@ -26,11 +26,10 @@ export const useLogin = () => {
         setIsPending(false)
         setError(null)
       }
-    } 
-    catch(err) {
-      if (!isCancelled) {
-        setError(err.message)
-        setIsPending(false)
+    } catch(err) {
+        if (!isCancelled) {
+          setError(err.message)
+          setIsPending(false)
       }
     }
   }
