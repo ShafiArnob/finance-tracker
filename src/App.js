@@ -1,20 +1,34 @@
-import {Routes,Route} from 'react-router-dom'
-import React from 'react';
+import {Routes,Route,Navigate} from 'react-router-dom'
 //pages
 import Home from './pages/home/Home'
 import Login from './pages/login/Login'
 import SignUp from './pages/signup/SignUp'
 import Navbar from './components/Navbar';
+import { useAuthContext } from './hooks/useAuthContext';
+import RequireAuth from './shared/RequireAuth';
 
 function App() {
+  const {user} = useAuthContext()
+
+  const {authIsReady} = useAuthContext()
+
   return (
     <div className="App">
-      <Navbar></Navbar>
-      <Routes>
-        <Route exact path='/' element={<Home></Home>}></Route>
-        <Route path='/login' element={<Login></Login>}></Route>
-        <Route path='/signup' element={<SignUp></SignUp>}></Route>
-      </Routes>
+      {authIsReady && (
+        <>
+          <Navbar></Navbar>
+          <Routes>
+            {/* <Route exact path='/' element={<Home></Home>}></Route> */}
+            <Route exact path='/' element={
+              <RequireAuth>
+                <Home></Home>
+              </RequireAuth>
+            }/>
+            <Route path='/login' element={!user?<Login></Login>:<Navigate to='/'/>}></Route>
+            <Route path='/signup' element={!user?<SignUp/>:<Navigate to='/'/>}></Route>
+          </Routes>
+        </>
+      )}
     </div>
   );
 }
