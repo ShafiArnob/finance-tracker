@@ -1,3 +1,4 @@
+import { logDOM } from '@testing-library/react'
 import { useEffect, useReducer, useState } from 'react'
 import {projectFirestore, timeStamp} from '../firebase/config'
 
