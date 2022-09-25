@@ -10,8 +10,8 @@ import TransactionForm from './TransactionForm'
 
 function Home() {
   const{user} = useAuthContext()
-  const {documents, error} = useCollection('transactions')
-  
+  const {documents, error} = useCollection('transaction')
+  // console.log(documents);
   return (
     <div className={styles.container}>
       <div className={styles.content}>

@@ -13,6 +13,10 @@ export const useCollection = (collection) =>{
       snapshot.docs.forEach(doc => {
         results.push({...doc.data(), id:doc.id})
       })
+
+      //update state
+      setDocuments(results)
+      setError(null)
     }, (error)=>{
       console.log(error);
       setError("Could not fetch the data")
@@ -20,6 +24,7 @@ export const useCollection = (collection) =>{
 
     //unsubscribe on unmount
     return () => unsubscribe()
+    
   }, [collection])
 
 

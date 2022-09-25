@@ -2,12 +2,17 @@
 //css
 import styles from './Home.module.css'
 
-function TransactionList() {
-  
+function TransactionList({transactions}) {
+  console.log(transactions);
   return (
-    <div>
-      
-    </div>
+    <ul className={styles.transactions}>
+      {transactions.map(transaction => 
+        <li key={transaction.key}>
+          <p className={styles.name}>{transaction.name}</p>
+          <p className={styles.amount}>${transaction.amount}</p>
+        </li>
+      )}
+    </ul>
   )
 }
 
