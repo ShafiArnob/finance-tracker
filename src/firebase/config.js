@@ -20,5 +20,6 @@ const projectFirestore = firebase.firestore()
 const projectAuth = firebase.auth()
 
 //time stamp
+const timeStamp = firebase.firestore.Timestamp
 
-export {projectFirestore, projectAuth}
+export {projectFirestore, projectAuth, timeStamp}
